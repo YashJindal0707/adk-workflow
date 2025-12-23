@@ -1,0 +1,58 @@
+.login-form {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem 1.5rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 16px 0 rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 0.1rem;
+}
+
+input {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #d3d8e4;
+  border-radius: 4px;
+}
+
+input:focus {
+  border-color: #3877f6;
+  outline: none;
+  box-shadow: 0 0 0 2px #cfe1fd;
+}
+
+.error-message,
+.field-error {
+  color: #d32f2f;
+  font-size: 0.96rem;
+}
+
+.submit-btn {
+  font-size: 1rem;
+  padding: 0.75rem;
+  background: #3877f6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.submit-btn:disabled, .submit-btn[aria-busy="true"] {
+  background: #b0cdfa;
+  cursor: not-allowed;
+}
