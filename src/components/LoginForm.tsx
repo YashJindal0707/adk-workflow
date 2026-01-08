@@ -6,8 +6,8 @@ const LoginForm: React.FC = () => {
   const [error, setError] = useState<string>('');
 
   const validateEmail = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -15,7 +15,7 @@ const LoginForm: React.FC = () => {
     setError('');
 
     if (!email || !password) {
-      setError('Both email and password are required.');
+      setError('Both fields are required.');
       return;
     }
 
@@ -29,7 +29,7 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', width: '300px', margin: 'auto' }}>
+    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', maxWidth: '300px', margin: 'auto' }}>
       <label htmlFor="email">Email:</label>
       <input
         type="email"
@@ -48,7 +48,7 @@ const LoginForm: React.FC = () => {
         required
         style={{ marginBottom: '10px' }}
       />
-      {error && <div style={{ color: 'red' }}>{error}</div>}
+      {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}
       <button type="submit">Login</button>
     </form>
   );
