@@ -3,37 +3,16 @@ import React, { useState } from 'react';
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string>('');
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setError(null);
-
     if (!email || !password) {
       setError('Email and password are required.');
       return;
     }
-
-    try {
-      // Simulate API call for login
-      await fakeApiLogin(email, password);
-      // Handle successful login (e.g., redirect or update state)
-    } catch (err) {
-      setError('Login failed. Please check your credentials.');
-    }
-  };
-
-  const fakeApiLogin = async (email: string, password: string): Promise<void> => {
-    // Simulated delay for API call
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (email === 'test@example.com' && password === 'password') {
-          resolve();
-        } else {
-          reject(new Error('Invalid credentials'));
-        }
-      }, 1000);
-    });
+    // Handle login logic here
+    console.log('Logging in with:', { email, password });
   };
 
   return (
